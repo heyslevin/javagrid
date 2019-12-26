@@ -1,7 +1,7 @@
 let texttest = "one ";
 let string = "two ";
 let newstring = 1;
-squares = 20;
+squares = 256;
 
 const container = document.querySelector(".gridContainer");
 const squareSelect = document.querySelector(".square");

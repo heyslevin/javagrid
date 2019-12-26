@@ -3,11 +3,14 @@
 	width: 30px;
 	color: red;
 	border: 1px solid black;
+	margin: 0;
+	padding: 0;
 }
 
 .gridContainer {
 	display: flex;
 	flex-wrap: wrap;
+	width: 512px;
 }
 
 .flexItem {
