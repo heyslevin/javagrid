@@ -12,3 +12,5 @@ for (let i=0; i < squares; i++){
 
 	container.appendChild(squareCreate);
 }
+
+test
