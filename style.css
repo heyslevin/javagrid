@@ -1,0 +1,15 @@
+.square {
+	height: 30px;
+	width: 30px;
+	color: red;
+	border: 1px solid black;
+}
+
+.gridContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flexItem {
+	display: flex;
+}
