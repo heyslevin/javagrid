@@ -16,3 +16,7 @@
 .flexItem {
 	display: flex;
 }
+
+.fillblack {
+	background-color: black;
+}
