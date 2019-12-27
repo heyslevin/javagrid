@@ -5,6 +5,8 @@ squares = 256;
 
 const container = document.querySelector(".gridContainer");
 
+//Create Grid
+
 for (let i=0; i < squares; i++){
 	var squareCreate = document.createElement("div");
 	squareCreate.classList.add("square", "flexItem");
@@ -12,23 +14,18 @@ for (let i=0; i < squares; i++){
 	container.appendChild(squareCreate);
 }
 
+//Painter functions
+
 function paintBlack(item) {
-	//item.classList.add("fillblack");//
-	item.classList.add("fillblack");
+	item.target.classList.add("fillblack");
 
 }
 
+//Event Listener for squares
+
 let squarepicker = document.querySelectorAll(".square");
-let squaretest = document.querySelector(".square");
-
-squaretest.addEventListener("mouseenter",paintBlack);
-
-// squaretest.classList.add("fillblack");
 
 
-
-for (let i=0;i < squares; i++) {
-	squarepicker[i].addEventListener("mouseenter", function(){
-		squarepicker[i].classList.add("fillblack");
-	});
+for (let i = 0; i < squares; i++) {
+	squarepicker[i].addEventListener("mouseenter",paintBlack);
 }
