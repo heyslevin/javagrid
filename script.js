@@ -21,6 +21,22 @@ function paintBlack(item) {
 
 }
 
+//Clear Button
+
+let button = document.querySelector("button");
+function clearcells() {
+	for (let i = 0; i < squares; i++) {
+		squarepicker[i].classList.remove("fillblack");
+	}	
+}
+button.addEventListener("click",clearcells);
+
+
+function clear(e){
+	e.target.classList.remove("paintBlack");
+}
+
+button.addEventListener("click",clearcells);
 //Event Listener for squares
 
 let squarepicker = document.querySelectorAll(".square");
