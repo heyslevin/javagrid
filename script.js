@@ -4,12 +4,39 @@ let newstring = 1;
 squares = 256;
 
 const container = document.querySelector(".gridContainer");
+let squarepicker;
+
+//Grid calculator
 
 //Create Grid
+	
+function sizemaker() {
+
+	input = prompt("How many per row?");
+	gridsize = input * input;
+	newsize =  (512 / input) - 2;
+
+	gridCreator();
+
+	squarepicker = document.querySelectorAll(".square");
+
+
+	for (let i=0;i < gridsize; i++) {
+		squarepicker[i].style.height = newsize +"px";
+		squarepicker[i].style.width = newsize +"px";
+	}
+
+	return squarepicker;
+
+}
+
+sizemaker();
+
+
 
 function gridCreator(){
 
-for (let i=0; i < squares; i++){
+for (let i=0; i < gridsize; i++){
 	var squareCreate = document.createElement("div");
 	squareCreate.classList.add("square", "flexItem");
 
@@ -18,7 +45,6 @@ for (let i=0; i < squares; i++){
 
 }
 
-gridCreator();
 
 //Painter functions
 
@@ -31,25 +57,22 @@ function paintBlack(item) {
 
 let button = document.querySelector("button");
 let userinput;
+
+
 function clearcells() {
-	for (let i = 0; i < squares; i++) {
-		squarepicker[i].classList.remove("fillblack");
-	}	
 
-	squares = prompt("How many cells?");
 	document.querySelectorAll(".square").forEach(e => e.remove());
-
-	gridCreator();
 
 }
 
 button.addEventListener("click",clearcells);
 
+
+
 //Event Listener for squares
 
-let squarepicker = document.querySelectorAll(".square");
 
 
-for (let i = 0; i < squares; i++) {
+for (let i = 0; i < gridsize; i++) {
 	squarepicker[i].addEventListener("mouseenter",paintBlack);
 }
