@@ -26,7 +26,15 @@ function sizemaker() {
 		squarepicker[i].style.width = newsize +"px";
 	}
 
+
+	//Event Listener for Black
+
+	for (let i = 0; i < gridsize; i++) {
+	squarepicker[i].addEventListener("mouseenter",paintRandom);
+	}
+
 	return squarepicker;
+
 
 }
 
@@ -53,6 +61,15 @@ function paintBlack(item) {
 
 }
 
+function paintRandom(item) {
+	let colors = ['blue','red','purple','yellow','green'];
+	item.target.style.background = colors[Math.floor(Math.random() * colors.length)];
+}
+
+function paintGrayscale(item) {
+	item.target.classList.add("fillgrayscale");
+}
+
 //Clear Button
 
 let button = document.querySelector("button");
@@ -62,6 +79,7 @@ let userinput;
 function clearcells() {
 
 	document.querySelectorAll(".square").forEach(e => e.remove());
+	sizemaker();
 
 }
 
@@ -69,10 +87,3 @@ button.addEventListener("click",clearcells);
 
 
 
-//Event Listener for squares
-
-
-
-for (let i = 0; i < gridsize; i++) {
-	squarepicker[i].addEventListener("mouseenter",paintBlack);
-}
