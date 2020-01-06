@@ -68,6 +68,7 @@ function paintRandom(item) {
 
 function paintGrayscale(item) {
 	item.target.classList.add("fillgrayscale");
+	let num = num - .1;
 }
 
 //Clear Button
