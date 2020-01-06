@@ -1,1 +1,1 @@
-This is an exercise for the Odin Project. Beginning Dec
+This is an exercise for the Odin Project. Beginning Dec. Ending Jan 05, 2020.
