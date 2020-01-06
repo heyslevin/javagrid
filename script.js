@@ -1,6 +1,7 @@
 let texttest = "one ";
 let string = "two ";
 let newstring = 1;
+let painter = paintBlack;
 squares = 256;
 
 const container = document.querySelector(".gridContainer");
@@ -14,7 +15,7 @@ function sizemaker() {
 
 	input = prompt("How many per row?");
 	gridsize = input * input;
-	newsize =  (512 / input) - 2;
+	newsize =  (512 / input);
 
 	gridCreator();
 
@@ -30,7 +31,7 @@ function sizemaker() {
 	//Event Listener for Black
 
 	for (let i = 0; i < gridsize; i++) {
-	squarepicker[i].addEventListener("mouseenter",paintRandom);
+	squarepicker[i].addEventListener("mouseenter",painter);
 	}
 
 	return squarepicker;
@@ -65,15 +66,20 @@ function paintRandom(item) {
 	let colors = ['blue','red','purple','yellow','green'];
 	item.target.style.background = colors[Math.floor(Math.random() * colors.length)];
 }
+	
+let num;
 
 function paintGrayscale(item) {
-	item.target.classList.add("fillgrayscale");
-	let num = num - .1;
+	item.target.style.opacity = `${Number(item.target.style.opacity) + 0.1}`;
+	item.target.style.background = "black";
 }
 
 //Clear Button
 
-let button = document.querySelector("button");
+let buttonClear = document.querySelector('button[id="clear"]');
+let buttonRandom = document.querySelector('button[id="random"]');
+let buttonGray = document.querySelector('button[id="grayscale"]');
+let buttonBlack = document.querySelector('button[id="black"]');
 let userinput;
 
 
@@ -84,7 +90,27 @@ function clearcells() {
 
 }
 
-button.addEventListener("click",clearcells);
+function randomCells() {
+	painter = paintRandom;
+	clearcells();
+
+}
+
+function grayCells() {
+	painter = paintGrayscale;
+	clearcells();
+
+}
+
+function blackPaint() {
+	painter = paintBlack;
+	clearcells();
+}
+
+buttonClear.addEventListener("click",clearcells);
+buttonRandom.addEventListener("click",randomCells);
+buttonGray.addEventListener("click",grayCells);
+buttonBlack.addEventListener("click",blackPaint);
 
 
 
